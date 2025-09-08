@@ -1,0 +1,41 @@
+.quien-soy-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.quien-soy-content{
+    background-color: #f0f0f0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #0e0d0d;
+    padding: 12px 24px;
+    border: 2px solid #050505;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    background-color: transparent;
+
+}
+
+.links a:hover {
+    background-color: #afafaf;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(206, 206, 206, 0.2);
+    transform: translateY(-2px);
+}
+
+
+.links a:focus {   outline: none; 
+       box-shadow: 0 0 0 3px rgba(207, 207, 207, 0.4);
+  }
