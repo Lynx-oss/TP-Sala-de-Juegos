@@ -2,13 +2,24 @@
     <form (ngSubmit)="login()" #loginForm="ngForm" novalidate> 
         <h2>Login</h2>
     <label for="email">Email</label>
-    <input id="email" type="email" name="email" [(ngModel)]="email" required>
+    <input id="email" type="email" name="email" [(ngModel)]="email" required placeholder="usuario@gmail.com">
 
 
     <label>Contraseña</label>
-    <input id="password" type="password" name="password" [(ngModel)]="password" required>
+    <input id="password" type="password" name="password" [(ngModel)]="password" required placeholder="xxxxxx">
+
+
     
     <button type="submit">login</button>
+    <button type="button " (click)="goRegistro()">registrarse</button>
+
+    <div class="Acceso-rapido">
+        <button type="button" (click)="testUser()">test</button>
+        <button type="button" (click)="testAdmin()">testAdmin</button>
+    </div>
+
     </form>
+
+   
 
 </div>
