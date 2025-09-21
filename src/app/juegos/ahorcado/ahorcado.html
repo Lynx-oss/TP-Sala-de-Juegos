@@ -1,0 +1,55 @@
+<div class="main-container">
+    <h2>Juego del Ahorcado</h2>
+    <h2 id="msg-final" [ngClass]="{'zoom-in': juegoTerminado}">{{ mensajeFinal }}</h2>
+    <h3 id="acierto" [ngClass]="claseResultado">{{ mensajeResultado }}</h3>
+    
+    <div class="flex-row">
+        <h2 class="palabra" id="palabra" [ngClass]="{'encuadre': juegoGanado}">
+          {{ palabraOculta.join('') }}
+        </h2>
+        
+        <picture>
+            <img src="assets/ahorcado_6.png" alt="" id="image6" 
+                 [ngClass]="{'fade-in': intentosRestantes == 0}">
+            <img src="assets/ahorcado_5.png" alt="" id="image5" 
+                 [ngClass]="{'fade-in': intentosRestantes == 1}">
+            <img src="assets/ahorcado_4.png" alt="" id="image4" 
+                 [ngClass]="{'fade-in': intentosRestantes == 2}">
+            <img src="assets/ahorcado_3.png" alt="" id="image3" 
+                 [ngClass]="{'fade-in': intentosRestantes == 3}">
+            <img src="assets/ahorcado_2.png" alt="" id="image2" 
+                 [ngClass]="{'fade-in': intentosRestantes == 4}">
+            <img src="assets/ahorcado_1.png" alt="" id="image1" 
+                 [ngClass]="{'fade-in': intentosRestantes == 5}">
+            <img src="assets/ahorcado_0.png" alt="" id="image0" 
+                 [ngClass]="{'fade-in': intentosRestantes == 6}">
+        </picture>
+    </div>
+    
+    <div class="flex-row" id="turnos">
+        <div class="col">
+            <h3>Intentos Restantes <span id="intentos">{{ intentosRestantes }}</span></h3>
+        </div>
+        <div class="col">
+            <button (click)="reiniciarJuego()" id="reset">
+              {{ juegoTerminado ? 'Empezar' : 'Elegir otra palabra' }}
+            </button>
+            <button (click)="mostrarPista()" id="pista" [disabled]="pistaVisible">
+              Dame una Pista!
+            </button>
+            <span id="hueco-pista">{{ pistaTexto }}</span>
+        </div>
+    </div>
+
+    <div class="abecedario" id="abcdario">
+        <button 
+          *ngFor="let letra of abecedario" 
+          [value]="letra" 
+          (click)="intento(letra)"
+          class="letra"
+          [id]="letra"
+          [disabled]="letrasUsadas.includes(letra) || juegoTerminado">
+          {{ letra }}
+        </button>
+    </div>
+</div>

@@ -56,7 +56,7 @@ export class SupabaseServices {
       );
     }
 
-    registrarLog(email: string): Observable<any> {
+    registrarLog(email: string): Observable<any> {    
       return from(
         this.supabase.from('user_logs').insert([{ email, fecha_ingreso : new Date().toISOString() }])
         .then(({ data, error }) => {

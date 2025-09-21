@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1.titulo {
+  margin: 50px auto 80px auto;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+/* Corrección: h2 en lugar de h1 */
+h2#msg-final {
+  text-align: center;
+  color: crimson;
+  transition: all .5s ease;
+  transform: scale(0);
+  min-height: 50px;
+  margin-bottom: 0;
+}
+
+.zoom-in {
+  transform: scale(1) !important;
+}
+
+#acierto {
+  text-align: center;
+  min-height: 24px;
+  transform: scale(0);
+}
+
+.acierto {
+  animation: zoomInOut 1s ease;
+}
+
+.rojo {
+  color: red;
+}
+
+.verde {
+  color: green;
+}
+
+/* Agregar clase para error (la usas en el TS) */
+.error {
+  color: red;
+}
+
+@keyframes zoomInOut {
+  0% { transform: scale(0); }
+  50% { transform: scale(1); }
+  70% { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+
+h2.palabra {
+  margin: 0 auto 25px auto;
+  text-align: center;
+  color: royalblue;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-family: monospace; /* Mejor para mostrar guiones */
+  font-size: 2rem;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  gap: 20px; /* Agregar espaciado */
+}
+
+.no-wrap {
+  flex-wrap: nowrap !important;
+}
+
+.col {
+  width: 50%;
+  text-align: center;
+}
+
+#turnos h3 {
+  margin: auto;
+}
+
+h3 span {
+  color: orangered;
+}
+
+/* Estilos para el abecedario */
+.abecedario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin: 20px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.letra {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.1s;
+  min-width: 40px;
+}
+
+.letra:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.letra:active {
+  transform: translateY(0);
+}
+
+.letra:disabled {
+  background-color: #cccccc;
+  color: rgba(255, 0, 0, 0.5);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Estilos para botones de control */
+#reset, #pista {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#reset:hover, #pista:hover:not(:disabled) {
+  background-color: #007B9A;
+}
+
+#pista:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Estilo para la pista */
+#hueco-pista {
+  display: block;
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
+  font-weight: bold;
+}
+
+picture {
+  position: relative;
+}
+
+picture img {
+  position: absolute;
+  top: -203px;
+  left: -205px;
+  height: 225px;
+}
+
+#image5, #image4, #image3,
+#image2, #image1, #image0 {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+.encuadre {
+  border: 2px dashed crimson;
+  padding: 3px 2px 2px 6px;
+  border-radius: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 10px;
+  }
+  
+  .flex-row {
+    flex-direction: column;
+  }
+  
+  .col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  picture img {
+    height: 180px;
+    top: -160px;
+    left: -140px;
+  }
+  
+  .letra {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 35px;
+  }
+}

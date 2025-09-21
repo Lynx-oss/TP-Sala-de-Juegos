@@ -1,10 +1,45 @@
-
-<div class="juegos-container">
+<div class="juegos-container"> 
     <h2>Juegos Disponibles</h2>
-    <div class="btn-juegos">
-        <button type="button">Ahorcado</button> <br> <br>
-        <button type="button">Mayor o Menor</button> <br> <br>
-        <a href="/home"><button type="button">Atrás</button></a>
+    
+    <div class="cards-row">
+
+        <mat-card class="ahorcado-card" appearance="outlined">
+            <mat-card-header>
+                <div mat-card-avatar class="ahorcado-header-image"></div>
+                <mat-card-title>ahorcado</mat-card-title>
+                <mat-card-subtitle>Juego</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/ahorcado.png" alt="foto del ahorcado">
+            <mat-card-content>
+                <p>
+                    "Adivina la palabra oculta letra por letra antes de que se complete el dibujo. ¡Tienes 6 intentos!"
+                </p>    
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button class="btn-jugar" routerLink="/juegos/ahorcado" matButton>Jugar</button>
+                <button mat-raised-button class="btn-como-jugar" routerLink="/como-jugar" matButton>Como Jugar</button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="ahorcado-card" appearance="outlined">
+            <mat-card-header>
+                <div mat-card-avatar class="MayorOMenor-header-image"></div>
+                <mat-card-title>Mayor o Menor</mat-card-title>
+                <mat-card-subtitle>Juego</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/mayor o menor.png" alt="imagen carta">
+            <mat-card-content>
+                <p>
+                    "Predice si la siguiente carta será mayor o menor que la actual. ¡Cuántas seguidas puedes acertar?"
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button class="btn-jugar" routerLink="/juegos/mayor-menor" >Jugar</button>
+                <button mat-raised-button class="btn-como-jugar" routerLink="/como-jugar" >Como Jugar</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
-   
+    
+    
+    <a href="/home"><button class="atras" type="button">Atrás</button></a>
 </div>

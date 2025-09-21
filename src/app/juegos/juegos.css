@@ -2,16 +2,65 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    gap: 10px;
+    flex-direction: column; 
+    min-height: 100vh;
+    gap: 20px;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(201, 201, 201, 0.1);
 }
 
-.btn-juegos button {
+.cards-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.ahorcado-card {
+    width: 300px;
+    margin-top: 20px;
+    justify-content: space-between;
+    height: 530px;  
+}
+
+.ahorcado-header-image {
+    background-image: url('/assets/avatar.png');
+    background-size: cover;
+}
+
+.btn-jugar {
+    text-decoration: none;
+    color: #333333;
+    padding: 12px 24px;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-jugar:hover {
+    background-color: #57ee49;
+    color: rgb(7, 7, 7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(48, 226, 4, 0.3);
+}
+
+.btn-jugar:active {
+    transform: translateY(0);
+}
+
+.btn-jugar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(189, 189, 189, 0.4);
+}
+
+.btn-como-jugar {
     text-decoration: none;
     color: #333;
     padding: 12px 24px;
@@ -25,18 +74,65 @@
     cursor: pointer;
 }
 
-.btn-juegos button:hover {
+.btn-como-jugar:hover {
+    background-color: #e1e42c;
+    color: rgb(0, 0, 0);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(168, 235, 11, 0.3);
+}
+
+.btn-como-jugar:active {
+    transform: translateY(0);
+}
+
+.btn-como-jugar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(189, 189, 189, 0.4);
+}
+
+.atras {
+    text-decoration: none;
+    color: #333;
+    padding: 12px 24px;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.atras:hover {
     background-color: #c5c3c0;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(192, 192, 192, 0.3);
 }
 
-.btn-juegos button:active {
+.atras:active {
     transform: translateY(0);
 }
 
-.btn-juegos button:focus {
+.atras:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(189, 189, 189, 0.4);
 }
+
+.ahorcado-card img[mat-card-image] {
+    width: 100%;
+    height: 298px; 
+    object-fit: contain; 
+    object-position: center;
+    background-color: #f8f8f8; 
+}
+
+.ahorcado-card mat-card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 40px; 
+    padding: 19px; 
+}
+
