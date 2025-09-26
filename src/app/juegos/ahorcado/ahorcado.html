@@ -1,14 +1,7 @@
 <div class="main-container">
     <h2>Juego del Ahorcado</h2>
-    <h2 id="msg-final" [ngClass]="{'zoom-in': juegoTerminado}">{{ mensajeFinal }}</h2>
-    <h3 id="acierto" [ngClass]="claseResultado">{{ mensajeResultado }}</h3>
-    
-    <div class="flex-row">
-        <h2 class="palabra" id="palabra" [ngClass]="{'encuadre': juegoGanado}">
-          {{ palabraOculta.join('') }}
-        </h2>
-        
-        <picture>
+    <div class="imagen-ahorcado">
+      <picture>
             <img src="assets/ahorcado_6.png" alt="" id="image6" 
                  [ngClass]="{'fade-in': intentosRestantes == 0}">
             <img src="assets/ahorcado_5.png" alt="" id="image5" 
@@ -24,6 +17,14 @@
             <img src="assets/ahorcado_0.png" alt="" id="image0" 
                  [ngClass]="{'fade-in': intentosRestantes == 6}">
         </picture>
+    </div>
+    <h2 id="msg-final" [ngClass]="{'zoom-in': juegoTerminado}">{{ mensajeFinal }}</h2>
+    <h3 id="acierto" [ngClass]="claseResultado">{{ mensajeResultado }}</h3>
+    
+    <div class="flex-row  ">
+        <h2 class="palabra" id="palabra" [ngClass]="{'encuadre': juegoGanado}">
+          {{ palabraOculta.join('') }}
+        </h2>
     </div>
     
     <div class="flex-row" id="turnos">
@@ -51,5 +52,9 @@
           [disabled]="letrasUsadas.includes(letra) || juegoTerminado">
           {{ letra }}
         </button>
+    </div>
+
+    <div class="btn-atras">
+      <a href="/Juegos"><button class="atras" type="button">Atrás</button></a>
     </div>
 </div>
