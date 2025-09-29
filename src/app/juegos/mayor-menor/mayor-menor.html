@@ -1,1 +1,54 @@
-<p>mayor-menor works!</p>
+<div class="main-container">
+  <div class="header">
+    <h2>Juego Mayor o Menor</h2>
+    <div class="scores">
+      <div class="score-box">
+        <p class="label">Puntuacion</p>
+        <p class="value">{{ score }}</p>
+      </div>
+      <div class="score-box">
+        <p class="label">Record</p>
+        <p class="value-record">{{maxScore}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="game-board">
+    <div *ngIf="!gameOver"class="playing">
+      <div class="cards-container">
+        <div class="card-wrapper">
+          <img *ngIf="currentCard" [src]="'assets/cards/' + currentCard.imageName" alt="'Carta'+ currentCard.value" class="card">
+        </div>
+        <div class="card-wrapper">
+          <img  *ngIf="showResult && nextCard"  [src]="'assets/cards/' + nextCard.imageName" alt="'Carta ' + nextCard.value" class="card card-reveal">
+          <div *ngIf="!showResult" class="card-hidden">
+            <span>?</span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="showResult" class="result-message" [class.correct] = "isCorrect" [class.incorrect] = "!isCorrect">
+        <p>{{ resultTEXT }}</p>
+      </div>
+
+      <div *ngIf="!showResult" class="buttons">
+        <button (click)="MayoroMenor('mayor')" class="btn btn-mayor">MAYOR</button>
+        <button (click)="MayoroMenor('menor')" class="btn btn-menor">MENOR</button>
+      </div>
+    </div>
+
+    <div *ngIf="gameOver" class="game-over">
+      <h3>Juego Terminado</h3>
+      <p class="final-score">Puntuacion Final: <span>{{score}}</span></p>
+      <p *ngIf="score === maxScore && score > 0" class="new-record">Nuevo Record!</p>
+      <button (click)="startGame()"class="btn btn-restart">Jugar de Nuevo</button>
+    </div>
+  </div>
+
+  <div class="btn-atras">
+      <a href="/Juegos"><button class="atras" type="button">Atrás</button></a>
+    </div>
+
+  
+</div>

@@ -17,7 +17,10 @@
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button class="btn-jugar" routerLink="/juegos/ahorcado" matButton>Jugar</button>
-                 <button mat-raised-button class="btn-como-jugar"  matButton>Como jugar</button>
+                 <button mat-raised-button class="btn-como-jugar"
+            (click)="openDialog('Ahorcado', 'Adivina la palabra oculta letra por letra antes de que se complete el dibujo. ¡Tienes 6 intentos!')">
+      Como Jugar
+    </button>
 
             </mat-card-actions>
         </mat-card>
@@ -36,8 +39,7 @@
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button class="btn-jugar" routerLink="/juegos/mayor-menor" >Jugar</button>
-                <button mat-raised-button class="btn-como-jugar">Como Jugar</button>
-            </mat-card-actions>
+                 <button mat-raised-button class="btn-como-jugar" (click)="openDialog('Mayor o Menor', 'Elige si la siguiente carta será mayor o menor que la actual. Si aciertas, continúas sumando puntos. Si fallas, termina la partida. ¡Pon a prueba tu intuición!')">Como Jugar </button>            </mat-card-actions>
         </mat-card>
     </div>
     
