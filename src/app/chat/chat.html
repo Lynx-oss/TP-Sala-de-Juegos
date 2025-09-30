@@ -1,0 +1,13 @@
+<div class="chat-container">
+  <div class="mensajes" #mensajesContainer>
+  <div *ngFor="let msg of mensajes" class="mensaje">
+    <strong>{{ msg.email }}:</strong> {{ msg.contenido }}
+    <small class="fecha">{{ msg.fecha | date:'dd/MM/yyyy HH:mm' }}</small>
+  </div>
+</div>
+
+  <div class="input-chat">
+    <input [(ngModel)]="nuevoMensaje" placeholder="Escribí tu mensaje" />
+    <button (click)="enviarMensaje()">Enviar</button>
+  </div>
+</div>

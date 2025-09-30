@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthResponse, createClient, SupabaseClient } from '@supabase/supabase-js';
 import { from, Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root'
@@ -65,7 +66,39 @@ export class SupabaseServices {
         })
       );
     }
-      
+
+    getMensajes(): Observable<any> {
+      return from(
+        this.supabase.from('mensajes').select('*').order('fecha', { ascending: true }).then(({ data, error }) => {
+          if (error) {
+            throw error;
+          }
+          return data;
+        }
+      )
+      );
+    }
+
+    addMensaje(email: string, contenido: string): Observable<any> {
+      return from (
+        this.supabase.from('mensajes')
+        .insert([{email, contenido}])
+        .then(({ data, error}) => {
+          if (error) throw error;
+          return data;
+        })
+      )
+    }
+
+
+    listenMensajes(callback: (payload: any) => void){ this.supabase
+      .channel('mensajes-channel')
+      .on('postgres_changes', {event: 'INSERT', schema: 'public', table: 'mensajes'}, payload => {
+        callback(payload.new);
+      })
+      .subscribe();
+    }
+    
 
 
 
@@ -77,6 +110,9 @@ export class SupabaseServices {
 
 
 
+
+
+
+  }
 
   
-}
